@@ -30,21 +30,27 @@ public class Main
             System.out.println(data);
             Connection connection = createConnection();
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("Select * from address where elementary_school is null");
+//            ResultSet resultSet = statement.executeQuery("Select distinct(street_name) as street_name, serial_number, house_number, street_type, municipality, zip_code from address where elementary_school is null and serial_number > 14000");
+            ResultSet resultSet = statement.executeQuery("Select distinct street_name, zip_code from address where elementary_school is null");
             while (!resultSet.isLast())
             {
                 resultSet.next();
-                Long serialNumber = resultSet.getLong("SERIAL_NUMBER");
-                String house = resultSet.getString("HOUSE_NUMBER");
                 String streetName = resultSet.getString("STREET_NAME");
-                String streetType = resultSet.getString("STREET_TYPE");
+                String zip = resultSet.getString("ZIP_CODE");
+
+                Connection connection2 = createConnection();
+                Statement statement2 = connection2.createStatement();
+                ResultSet resultSet2 = statement2.executeQuery("Select * from address where street_name = '"+ streetName +"' and zip_code = '"+ zip +"'");
+                resultSet2.next();
+                Long serialNumber = resultSet2.getLong("SERIAL_NUMBER");
+                String house = resultSet2.getString("HOUSE_NUMBER");
+                String streetType = resultSet2.getString("STREET_TYPE");
                 if (streetType == null)
                 {
                     streetType = "";
                 }
                 streetType = getStreetTypeAbbreviation(streetType);
-                String city = resultSet.getString("MUNICIPALITY");
-                String zip = resultSet.getString("ZIP_CODE");
+                String city = resultSet2.getString("MUNICIPALITY");
                 streetName = streetName.toLowerCase();
                 if (streetName.contains("blvd"))
                 {
@@ -62,8 +68,9 @@ public class Main
                 {
                     updateSchoolDetails(schoolsList, searchParams, serialNumber);
                 }
-                connection.close();
+                connection2.close();
             }
+            connection.close();
         } catch (Exception e)
         {
             System.out.println("Exception in main " + e.getMessage());
