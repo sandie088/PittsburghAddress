@@ -132,23 +132,26 @@ public class Main
     private static String getSearchParams(JSONObject addressJSON)
     {
         String searchString = "";
-        JSONObject idJSON = addressJSON.optJSONObject("id");
-        JSONObject buildingsJSON = idJSON.optJSONObject("buildings");
-        if (buildingsJSON != null && !buildingsJSON.isEmpty())
+        if (addressJSON.has("id"))
         {
-            JSONArray tempJSONArray = buildingsJSON.getJSONArray(buildingsJSON.keys().next());
-            System.out.println(tempJSONArray);
-
-            for (int i = 0; i < tempJSONArray.length(); i++)
+            JSONObject idJSON = addressJSON.optJSONObject("id");
+            JSONObject buildingsJSON = idJSON.optJSONObject("buildings");
+            if (buildingsJSON != null && !buildingsJSON.isEmpty())
             {
-                searchString = searchString + ":" + tempJSONArray.getString(i);
-            }
+                JSONArray tempJSONArray = buildingsJSON.getJSONArray(buildingsJSON.keys().next());
+                System.out.println(tempJSONArray);
 
-            if (!searchString.equalsIgnoreCase(""))
-            {
-                searchString = searchString.substring(1, searchString.length());
+                for (int i = 0; i < tempJSONArray.length(); i++)
+                {
+                    searchString = searchString + ":" + tempJSONArray.getString(i);
+                }
+
+                if (!searchString.equalsIgnoreCase(""))
+                {
+                    searchString = searchString.substring(1, searchString.length());
+                }
+                System.out.println(searchString);
             }
-            System.out.println(searchString);
         }
 
         return searchString;
@@ -240,17 +243,21 @@ public class Main
             os.write(input, 0, input.length);
         }
 
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8)))
+        int responseCode = con.getResponseCode();
+        if (responseCode == 200)
         {
-            StringBuilder response = new StringBuilder();
-            String responseLine = null;
-            while ((responseLine = br.readLine()) != null)
+            try (BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream(), StandardCharsets.UTF_8)))
             {
-                response.append(responseLine.trim());
+                StringBuilder response = new StringBuilder();
+                String responseLine = null;
+                while ((responseLine = br.readLine()) != null)
+                {
+                    response.append(responseLine.trim());
+                }
+                System.out.println("Printing response:" + response.toString());
+                addressJSON = new JSONObject(response.toString());
             }
-            System.out.println("Printing response:" + response.toString());
-            addressJSON = new JSONObject(response.toString());
         }
         return addressJSON;
     }
