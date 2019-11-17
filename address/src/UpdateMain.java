@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
 
-public class Main
+public class UpdateMain
 {
     private static String searchUrl = "http://discoverpps.org/api/search";
     private static String HOUSE = "house";
@@ -31,44 +31,34 @@ public class Main
             Connection connection = createConnection();
             Statement statement = connection.createStatement();
 //            ResultSet resultSet = statement.executeQuery("Select distinct(street_name) as street_name, serial_number, house_number, street_type, municipality, zip_code from address where elementary_school is null and serial_number > 14000");
-            ResultSet resultSet = statement.executeQuery("Select distinct street_name, zip_code from address where elementary_school is null order by zip_code desc");
+            ResultSet resultSet = statement.executeQuery("Select distinct street_name, zip_code from address where elementary_school is not null");
             while (!resultSet.isLast())
             {
                 resultSet.next();
                 String streetName = resultSet.getString("STREET_NAME");
                 String zip = resultSet.getString("ZIP_CODE");
-
+                System.out.println(streetName + ": " + zip);
                 Connection connection2 = createConnection();
                 Statement statement2 = connection2.createStatement();
-                ResultSet resultSet2 = statement2.executeQuery("Select * from address where street_name = '"+ streetName +"' and zip_code = '"+ zip +"'");
+                String tempQueryString = "Select * from address where (STREET_NAME like '"+ streetName +"' and zip_code like '"+ zip +"')";
+                System.out.println(tempQueryString);
+                ResultSet resultSet2 = statement2.executeQuery(tempQueryString);
                 resultSet2.next();
-                Long serialNumber = resultSet2.getLong("SERIAL_NUMBER");
-                String house = resultSet2.getString("HOUSE_NUMBER");
-                String streetType = resultSet2.getString("STREET_TYPE");
-                if (streetType == null)
-                {
-                    streetType = "";
-                }
-                streetType = getStreetTypeAbbreviation(streetType);
-                String city = resultSet2.getString("MUNICIPALITY");
-                streetName = streetName.toLowerCase();
-                if (streetName.contains("blvd"))
-                {
-                    System.out.println(streetName);
-                    streetName = streetName.replace("blvd", "Boulevard");
-                }
-                String streetAddress = streetName.toLowerCase();
-                if (!streetType.equalsIgnoreCase(""))
-                {
-                    streetAddress = streetAddress + " " + streetType;
-                }
-                JSONObject addressJSON = getSchoolForAddress(house, streetAddress, city, zip);
-                String searchParams = getSearchParams(addressJSON);
-                if (!searchParams.equalsIgnoreCase(""))
-                {
-                    updateSchoolDetails(schoolsList, searchParams, serialNumber);
-                }
+                String elementarySchool = resultSet2.getString("elementary_school");
+                String middleSchool = resultSet2.getString("middle_school");
+                String highSchool = resultSet2.getString("high_school");
                 connection2.close();
+
+
+                Connection connection3 = createConnection();
+                Statement statement3 = connection3.createStatement();
+                statement3.executeUpdate(
+                        "Update address set ELEMENTARY_SCHOOL = '" + elementarySchool + "' where STREET_NAME = '" + streetName + "' and zip_code = '" + zip + "'");
+                statement3.executeUpdate(
+                        "Update address set MIDDLE_SCHOOL = '" + middleSchool + "' where STREET_NAME = '" + streetName + "' and zip_code = '" + zip + "'");
+                statement3.executeUpdate(
+                        "Update address set HIGH_SCHOOL = '" + highSchool + "' where STREET_NAME = '" + streetName + "' and zip_code = '" + zip + "'");
+                connection3.close();
             }
             connection.close();
         } catch (Exception e)

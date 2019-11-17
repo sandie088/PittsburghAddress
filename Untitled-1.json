@@ -1,0 +1,242 @@
+{
+    "house": "50",
+    "street": "32nd Street",
+    "city": "Pittsburgh",
+    "zip": "15201"
+}
+
+{
+    "id": {
+        "search": {
+            "prefix": null,
+            "street": "32nd",
+            "suffix": [
+                "Street",
+                "ST"
+            ],
+            "city": "Pittsburgh",
+            "zip": null,
+            "house": "50",
+            "even": true
+        },
+        "buildings": {
+            "15201": [
+                "189",
+                "298",
+                "309"
+            ]
+        }
+    }
+}
+
+{
+    "schools": {
+        "189": {
+            "details": {
+                "SchoolID": 189,
+                "Direction": "e",
+                "ADA": "1",
+                "MagnetDesc": "Neighborhood School with Science Technology Engineering Arts and Mathematics Magnet",
+                "SiteUrl": "woolslair",
+                "Fax": "4126238810",
+                "SchoolAlertBox": "",
+                "GoogleCalendarID": "m37htc0f5fqpf7ii25age7i2ck@group.calendar.google.com",
+                "StaffWebpageURL": "",
+                "FacebookURL": "https:\/\/www.facebook.com\/pages\/Woolslair-Elementary-School\/148258075199321",
+                "TwitterURL": "",
+                "InstagramURL": "",
+                "YouTubeURL": "",
+                "GoogleURL": "",
+                "PTOURL": "",
+                "AlumniURL": "",
+                "WebsiteURL": "",
+                "NewsletterURL": "",
+                "StarSchool": "1",
+                "StateID": "7502",
+                "SchoolTypeID": "2",
+                "AddressLine1": "501 - 40th St",
+                "AddressLine2": null,
+                "SchoolName": "Woolslair PreK-5",
+                "Zip": "15224",
+                "Phone": "4125298800",
+                "State": "PA",
+                "City": "Pittsburgh",
+                "MagnetInd": "0",
+                "StartTime": "8:10AM",
+                "EndTime": "2:51PM",
+                "dwSchoolID": "189",
+                "AverageClassSize": null,
+                "DistrictID": "2",
+                "Mascot": "",
+                "SchoolColors": "",
+                "vimeoID": "0",
+                "PeachjarURL": "https:\/\/www.peachjar.com\/index.php?region=18138&a=28&b=138",
+                "created_at": null,
+                "updated_at": "2019-06-19 11:57:00.000",
+                "Image": "\/img\/school\/189.jpg",
+                "MascotImage": null
+            },
+            "type": {
+                "SchoolTypeID": "2",
+                "SchoolTypeName": "K-5 Schools"
+            },
+            "grades": "All Grades"
+        },
+        "298": {
+            "details": {
+                "SchoolID": 298,
+                "Direction": "e",
+                "ADA": "1",
+                "MagnetDesc": "Neighborhood School",
+                "SiteUrl": "arsenalms",
+                "Fax": "4126225743",
+                "GoogleCalendarID": "3r661o9iqptmg56lofptq312p8@group.calendar.google.com",
+                "StaffWebpageURL": "",
+                "FacebookURL": "https:\/\/www.facebook.com\/pages\/Arsenal-Middle-School\/103426309748778",
+                "TwitterURL": "",
+                "InstagramURL": "",
+                "YouTubeURL": "",
+                "GoogleURL": "",
+                "PTOURL": "",
+                "AlumniURL": "",
+                "WebsiteURL": "",
+                "NewsletterURL": "",
+                "StarSchool": "1",
+                "StateID": "7886",
+                "SchoolTypeID": "4",
+                "AddressLine1": "220 40th Street",
+                "AddressLine2": null,
+                "SchoolName": "Arsenal 6-8",
+                "Zip": "15201",
+                "Phone": "4125295740",
+                "State": "PA",
+                "City": "Pittsburgh",
+                "MagnetInd": "0",
+                "StartTime": "8:10AM",
+                "EndTime": "2:51PM",
+                "dwSchoolID": "298",
+                "AverageClassSize": null,
+                "DistrictID": "2",
+                "Mascot": "Patriots",
+                "Uniform": "No",
+                "SchoolColors": "Red and Black",
+                "vimeoID": "0",
+                "created_at": null,
+                "updated_at": "2019-07-17 15:31:51.000",
+                "Image": "\/img\/school\/298.jpg",
+                "MascotImage": null
+            },
+            "type": {
+                "SchoolTypeID": "4",
+                "SchoolTypeName": "6-8 Schools"
+            },
+            "grades": "All Grades"
+        },
+        "309": {
+            "details": {
+                "SchoolID": 309,
+                "Direction": "c",
+                "ADA": "1",
+                "MagnetDesc": "Neighborhood School with a University Preparatory Magnet",
+                "SiteUrl": "uprep",
+                "Fax": "4126225925",
+                "SchoolAlertBox": "",
+                "GoogleCalendarID": "fihpsrpdffhu8eitefvoo3ehq8@group.calendar.google.com",
+                "StaffWebpageURL": "",
+                "FacebookURL": "https:\/\/www.facebook.com\/pages\/Pittsburgh-Milliones-University-Preparatory-School\/113566322026386",
+                "TwitterURL": "",
+                "InstagramURL": "",
+                "YouTubeURL": "",
+                "GoogleURL": "",
+                "PTOURL": "",
+                "AlumniURL": "",
+                "WebsiteURL": "",
+                "NewsletterURL": "",
+                "StarSchool": "0",
+                "StateID": "8110",
+                "SchoolTypeID": "5",
+                "AddressLine1": "3117 Centre Ave",
+                "AddressLine2": null,
+                "SchoolName": "Milliones 6-12",
+                "Zip": "15219",
+                "Phone": "4125295900",
+                "State": "PA",
+                "City": "Pittsburgh",
+                "MagnetInd": "0",
+                "StartTime": "8:25AM",
+                "EndTime": "3:26PM",
+                "dwSchoolID": "309",
+                "AverageClassSize": null,
+                "DistrictID": "3",
+                "Mascot": "",
+                "Uniform": "",
+                "SchoolColors": "",
+                "vimeoID": "0",
+                "created_at": null,
+                "updated_at": "2019-08-26 15:51:31.000",
+                "history": null,
+                "Image": "\/img\/school\/309.jpg",
+                "MascotImage": null
+            },
+            "type": {
+                "SchoolTypeID": "5",
+                "SchoolTypeName": "6-12 Schools"
+            },
+            "grades": "All Grades"
+        },
+        "337": {
+            "details": {
+                "SchoolID": 337,
+                "Direction": "c",
+                "ADA": "1",
+                "MagnetDesc": "Center School",
+                "SiteUrl": "online",
+                "Fax": "4128942500",
+                "SchoolAlertBox": "",
+                "GoogleCalendarID": "t638d7jdlhrmaqo4aobvc6v3os@group.calendar.google.com",
+                "StaffWebpageURL": "",
+                "FacebookURL": "",
+                "TwitterURL": "",
+                "InstagramURL": "",
+                "YouTubeURL": "",
+                "GoogleURL": "",
+                "PTOURL": "",
+                "AlumniURL": "",
+                "WebsiteURL": "https:\/\/www.pghschools.org\/domain\/1293",
+                "NewsletterURL": "",
+                "StarSchool": "0",
+                "StateID": "8300",
+                "SchoolTypeID": "5",
+                "AddressLine1": "93 S. 10th Street",
+                "AddressLine2": null,
+                "SchoolName": "Online Academy",
+                "Zip": "15203",
+                "Phone": "4125293510",
+                "State": "PA",
+                "City": "Pittsburgh",
+                "MagnetInd": "0",
+                "StartTime": "8:00AM",
+                "EndTime": "5:05PM",
+                "dwSchoolID": "337",
+                "AverageClassSize": null,
+                "DistrictID": "7",
+                "Mascot": "",
+                "Uniform": "",
+                "SchoolColors": "",
+                "vimeoID": "0",
+                "CalendarType": "outlook",
+                "OutlookURL": "https:\/\/outlook.office365.com\/owa\/calendar\/9bc98b6dff8843978bfc50a53025cfa6@pghschools.org\/d75dbc0dbd1749d38ebe87955ef65cf411336079660021371985\/calendar.ics",
+                "PeachjarURL": "https:\/\/www.peachjar.com\/index.php?region=148500&a=28&b=138",
+                "created_at": null,
+                "updated_at": "2018-09-27 15:46:17.000",
+                "history": null,
+                "Image": "\/img\/school\/337.jpg",
+                "MascotImage": "\/img\/mascot\/337.jpg"
+            },
+            "type": {
+                "SchoolTypeName": "Online"
+            },
+            "grades": "All Grades"
+        }
+    }
+}
